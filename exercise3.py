@@ -28,6 +28,10 @@ class Rectangle:
     def _is_within_interval(self, value: float, low: float, high: float, tolerance: float) -> bool:
         return (low -tolerance )<= value <= (high + tolerance)
 
+    # Task A solution with tolerance (Task B)
+    def _is_within_interval(self, value: float, low: float, high: float, tolerance: float) -> bool:
+        return (low -tolerance )<= value <= (high + tolerance)
+      
     def contains(self, point: Point2D, tolerance: Optional[float] = 0.0) -> bool:
         # Task A: remove duplication by defining a function
         #         that checks if a value is within an interval
