@@ -30,7 +30,6 @@ class Rectangle:
         return (low -tolerance )<= value <= (high + tolerance)
 
     def contains(self, point: Point2D, tolerance: Optional[float] = 0.0) -> bool:
-    def contains(self, point: Point2D) -> bool:
         # Task A: remove duplication by defining a function
         #         that checks if a value is within an interval
         #         and reuse that here.
