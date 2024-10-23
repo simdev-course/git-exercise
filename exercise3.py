@@ -1,6 +1,6 @@
 from exercise1 import Vector
 from exercise2 import Point2D
-
+from typing import Optional
 
 class Rectangle:
     def __init__(self, lower_left: Point2D, dx: float, dy: float) -> None:
@@ -25,15 +25,18 @@ class Rectangle:
     def upper_right(self) -> Point2D:
         return self.corner(3)
 
-    # def contains(self, point: Point2D, tolerance: float = 0.0) -> bool: # Task B
+    # Task A solution with tolerance (Task B)
+    def _is_within_interval(self, value: float, low: float, high: float, tolerance: float) -> bool:
+        return (low -tolerance )<= value <= (high + tolerance)
+
+    def contains(self, point: Point2D, tolerance: Optional[float] = 0.0) -> bool:
     def contains(self, point: Point2D) -> bool:
         # Task A: remove duplication by defining a function
         #         that checks if a value is within an interval
         #         and reuse that here.
         ll_px = point.x - self._lower_left.x
         ll_py = point.y - self._lower_left.y
-        return ll_px >= 0 and ll_px <= self._dx \
-            and ll_py >= 0 and ll_py <= self._dy
+        return (self._is_within_interval(ll_px, 0, self._dx, tolerance) and self._is_within_interval(ll_py, 0, self._dy, tolerance))
 
     def _is_idx_on_upper_edge(self, i: int) -> bool:
         return i in [2, 3]
