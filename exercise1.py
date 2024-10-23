@@ -46,4 +46,8 @@ def test_3d_vector_addition() -> None:
 
 def test_3d_vector_subtraction() -> None:
     # Task B: add a test for vector subtraction
-    assert False
+    vector_a = Vector([4.0, 8.0, 12.0])
+    vector_b = Vector([1.0, 2.0, 3.0])
+    result = vector_a - vector_b
+    expected = Vector([3.0, 6.0, 9.0])
+    assert all(result[i] == expected[i] for i in range(3)), f"Expected {expected}, but got {result}"
