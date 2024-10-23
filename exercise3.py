@@ -36,6 +36,10 @@ class Rectangle:
         ll_px = point.x - self._lower_left.x
         ll_py = point.y - self._lower_left.y
         return (self._is_within_interval(ll_px, 0, self._dx, tolerance) and self._is_within_interval(ll_py, 0, self._dy, tolerance))
+    
+    # Task A solution
+    def _is_within_interval(self, value: float, low: float, high: float) -> bool:
+        return low <= value <= high
 
     def _is_idx_on_upper_edge(self, i: int) -> bool:
         return i in [2, 3]
