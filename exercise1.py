@@ -23,7 +23,9 @@ class Vector:
     def __sub__(self, other: Vector) -> Vector:
         assert len(self._coordinates) == len(other._coordinates)
         return Vector([self[i] - other[i] for i in range(len(self._coordinates))])
-
+    
+    def __len__(self,) -> int:
+        return len(self._coordinates)
 
 def test_vector_index_access() -> None:
     for index in [0, 1, 2, 3]:
