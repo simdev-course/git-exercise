@@ -24,7 +24,6 @@ class Rectangle:
     @property
     def upper_right(self) -> Point2D:
         return self.corner(3)
-
     # Task A solution with tolerance (Task B)
     def _is_within_interval(self, value: float, low: float, high: float, tolerance: float) -> bool:
         return (low -tolerance )<= value <= (high + tolerance)
@@ -36,18 +35,12 @@ class Rectangle:
         ll_px = point.x - self._lower_left.x
         ll_py = point.y - self._lower_left.y
         return (self._is_within_interval(ll_px, 0, self._dx, tolerance) and self._is_within_interval(ll_py, 0, self._dy, tolerance))
-    
-    # Task A solution
-    def _is_within_interval(self, value: float, low: float, high: float) -> bool:
-        return low <= value <= high
 
     def _is_idx_on_upper_edge(self, i: int) -> bool:
         return i in [2, 3]
     
     def _is_idx_on_right_edge(self, i: int) -> bool:
         return i in [1, 3]
-
-    # def is_in_interval(...) -> bool: # Task A
 
 
 def test_rectangle_contains_exact() -> None:
